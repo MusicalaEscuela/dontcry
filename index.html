@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Don't Cry – Guitarra | Musicala</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --m-purple: #7c4dff;
+      --m-purple-dark: #5b34c4;
+      --m-lilac: #efe8ff;
+      --m-lilac-2: #f7f2ff;
+      --m-pink: #f7dfff;
+      --m-blue: #dff4ff;
+      --m-gold-soft: #fff2d8;
+
+      --bg: #fcfbff;
+      --surface: #ffffff;
+      --surface-2: #f7f3ff;
+      --surface-3: #f3efff;
+      --border: #e6ddfb;
+      --border-2: #d6c8fa;
+
+      --text: #241b35;
+      --text-2: #5e5478;
+      --text-3: #8a80a6;
+
+      --shadow-soft: 0 10px 30px rgba(97, 64, 176, 0.08);
+      --shadow-card: 0 8px 22px rgba(94, 68, 165, 0.10);
+
+      --radius: 18px;
+      --radius-sm: 12px;
+      --radius-xs: 8px;
+    }
+
+    html {
+      background:
+        radial-gradient(circle at top left, rgba(124, 77, 255, 0.08), transparent 30%),
+        radial-gradient(circle at top right, rgba(247, 223, 255, 0.45), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, #fcfbff 100%);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: transparent;
+      min-height: 100vh;
+      padding: 1.25rem 1rem 4rem;
+    }
+
+    .app {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .top-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    .pdf-btn {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--m-purple), var(--m-purple-dark));
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow: 0 10px 24px rgba(91, 52, 196, 0.25);
+      transition: transform 0.15s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .pdf-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(91, 52, 196, 0.28);
+      filter: brightness(1.02);
+    }
+
+    .pdf-btn:active {
+      transform: translateY(0);
+    }
+
+    .pdf-btn-icon {
+      width: 18px;
+      height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .brand-strip {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 16px;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(8px);
+    }
+
+    .brand-pill img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-pill span {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--m-purple-dark);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 2rem 1.25rem 2rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.95), rgba(247,242,255,0.96)),
+        linear-gradient(135deg, rgba(124,77,255,0.07), rgba(247,223,255,0.08));
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(6px);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 220px;
+      height: 220px;
+      background: rgba(124, 77, 255, 0.08);
+      top: -80px;
+      left: -50px;
+    }
+
+    .hero::after {
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 166, 223, 0.14);
+      bottom: -70px;
+      right: -30px;
+    }
+
+    .hero-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-logo img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(124, 77, 255, 0.16));
+    }
+
+    .hero-eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--m-purple);
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: var(--m-lilac);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 12px;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 6vw, 56px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .hero-sub {
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+      color: var(--text-3);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .hero-sub strong {
+      color: var(--text-2);
+      font-weight: 700;
+    }
+
+    /* INTRO CARD */
+    .intro-card {
+      background: linear-gradient(180deg, #ffffff 0%, #faf7ff 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 1.75rem;
+    }
+
+    .intro-card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--m-purple-dark);
+      margin-bottom: 8px;
+    }
+
+    .intro-card p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-2);
+    }
+
+    .intro-card p strong {
+      color: var(--text);
+    }
+
+    /* SECTION LABEL */
+    .sec-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 14px;
+      padding-left: 4px;
+    }
+
+    /* CHORDS GRID */
+    .chords-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .chord-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fcfaff 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 15px 12px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.15s, transform 0.15s, box-shadow 0.18s;
+      user-select: none;
+      box-shadow: 0 4px 14px rgba(100, 76, 165, 0.04);
+    }
+
+    .chord-card:hover {
+      border-color: var(--border-2);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .chord-card.active {
+      border-color: var(--m-purple);
+      border-width: 1.5px;
+      box-shadow: 0 0 0 4px rgba(124, 77, 255, 0.10), var(--shadow-card);
+      background: linear-gradient(180deg, #ffffff 0%, #f8f3ff 100%);
+    }
+
+    .chord-symbol {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .chord-fullname {
+      font-size: 10px;
+      color: var(--text-3);
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .chord-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 999px;
+      margin-top: 10px;
+      letter-spacing: 0.04em;
+      border: 1px solid transparent;
+    }
+
+    .badge-verse  { background: #e7f4ff; color: #205d95; border-color: #cfe8fb; }
+    .badge-chorus { background: #e6fbef; color: #16643d; border-color: #c7efd7; }
+    .badge-both   { background: #efe8ff; color: #5b34c4; border-color: #dccfff; }
+
+    /* DETAIL PANEL */
+    .detail-panel {
+      display: none;
+      background: linear-gradient(180deg, #ffffff 0%, #faf7ff 100%);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.6rem;
+      animation: slideIn 0.18s ease;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .detail-panel.open {
+      display: block;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .detail-inner {
+      display: flex;
+      gap: 1.75rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .detail-info {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .detail-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .detail-info p {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .finger-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.8;
+    }
+
+    .finger-box strong {
+      color: var(--text);
+    }
+
+    /* STRUM */
+    .strum-box {
+      background: linear-gradient(180deg, #ffffff 0%, #faf7ff 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .strum-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .strum-sub {
+      font-size: 12px;
+      color: var(--text-3);
+      margin-bottom: 12px;
+    }
+
+    .strum-pattern {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .beat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .beat-arrow {
+      width: 38px;
+      height: 38px;
+      background: #fff;
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--m-purple);
+      font-weight: 700;
+      box-shadow: 0 3px 10px rgba(124, 77, 255, 0.08);
+    }
+
+    .beat-num {
+      font-size: 10px;
+      color: var(--text-3);
+      font-weight: 700;
+    }
+
+    .beat-sep {
+      width: 1px;
+      height: 36px;
+      background: var(--border-2);
+      margin: 0 4px;
+    }
+
+    .strum-note {
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    /* TABS */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      width: fit-content;
+      margin-bottom: 1rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+
+    .tab-btn {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-2);
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.15s;
+    }
+
+    .tab-btn.active {
+      background: var(--surface);
+      color: var(--m-purple-dark);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 10px rgba(124, 77, 255, 0.08);
+    }
+
+    /* LYRICS */
+    .lyrics-block {
+      background: linear-gradient(180deg, #ffffff 0%, #fcfbff 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.45rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .lyric-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--m-purple);
+      margin-bottom: 1rem;
+    }
+
+    .lyric-row {
+      margin-bottom: 18px;
+    }
+
+    .lyric-chords {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .lyric-chord-tag {
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: var(--m-purple-dark);
+      background: var(--m-lilac);
+      border: 1px solid rgba(124, 77, 255, 0.16);
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+
+    .lyric-text {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    /* TIPS */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .tip-card {
+      background: linear-gradient(180deg, #ffffff 0%, #faf7ff 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      box-shadow: 0 5px 16px rgba(97, 64, 176, 0.05);
+    }
+
+    .tip-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .tip-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .tip-body  {
+      font-size: 11px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    /* FOOTER NOTE */
+    .footer-note {
+      margin-top: 1.8rem;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-3);
+      line-height: 1.7;
+      padding: 0 8px;
+    }
+
+    .footer-note strong {
+      color: var(--m-purple-dark);
+    }
+
+    .mb1 { margin-bottom: 1rem; }
+    .mb2 { margin-bottom: 2rem; }
+
+    /* PRINT */
+    @page {
+      size: Letter portrait;
+      margin: 1.2cm;
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff !important;
+      }
+
+      body {
+        padding: 0;
+        min-height: auto;
+      }
+
+      .top-actions {
+        display: none !important;
+      }
+
+      .app {
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .brand-strip {
+        margin-bottom: 0.4cm;
+      }
+
+      .brand-pill {
+        box-shadow: none;
+        backdrop-filter: none;
+        border: 1px solid #d8d3ea;
+        background: #fff;
+      }
+
+      .hero,
+      .intro-card,
+      .detail-panel,
+      .strum-box,
+      .lyrics-block,
+      .tip-card,
+      .chord-card {
+        box-shadow: none !important;
+        background: #ffffff !important;
+      }
+
+      .hero {
+        border-radius: 16px;
+        margin-bottom: 0.45cm;
+        padding: 0.6cm 0.5cm;
+      }
+
+      .hero::before,
+      .hero::after {
+        display: none !important;
+      }
+
+      .hero h1 {
+        font-size: 28pt;
+      }
+
+      .hero-sub {
+        font-size: 10.5pt;
+      }
+
+      .intro-card {
+        margin-bottom: 0.4cm;
+      }
+
+      .sec-label {
+        margin-bottom: 0.2cm;
+        font-size: 8.5pt;
+      }
+
+      .chords-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.25cm;
+        margin-bottom: 0.3cm;
+      }
+
+      .chord-card {
+        transform: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        padding: 10px 8px 8px;
+      }
+
+      .detail-panel {
+        display: block !important;
+        margin-bottom: 0.35cm;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .detail-inner {
+        flex-wrap: nowrap;
+        gap: 0.5cm;
+      }
+
+      .strum-box,
+      .lyrics-block {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .strum-box {
+        margin-bottom: 0.4cm;
+      }
+
+      .tabs {
+        display: none !important;
+      }
+
+      #song-content {
+        margin-bottom: 0.35cm !important;
+      }
+
+      .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.25cm;
+        margin-bottom: 0.2cm;
+      }
+
+      .footer-note {
+        margin-top: 0.35cm;
+        font-size: 9pt;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.85rem 3rem;
+      }
+
+      .top-actions {
+        justify-content: center;
+      }
+
+      .pdf-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 1.5rem 1rem 1.6rem;
+        border-radius: 24px;
+      }
+
+      .hero-logo img {
+        width: 62px;
+        height: 62px;
+      }
+
+      .intro-card,
+      .lyrics-block,
+      .strum-box,
+      .detail-panel {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .detail-inner {
+        gap: 1rem;
+      }
+
+      .tabs {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .tab-btn {
+        flex: 1;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+
+    <div class="top-actions">
+      <button class="pdf-btn" onclick="downloadPDF()" type="button">
+        <span class="pdf-btn-icon">🖨️</span>
+        <span>Descargar en PDF</span>
+      </button>
+    </div>
+
+    <div class="brand-strip">
+      <div class="brand-pill">
+        <img src="logo.png" alt="Logo Musicala" />
+        <span>Guía de apoyo Musicala</span>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-logo">
+        <img src="logo.png" alt="Logo Musicala" />
+      </div>
+      <div class="hero-eyebrow">Práctica de guitarra · Musicala</div>
+      <h1>Don't Cry</h1>
+      <div class="hero-sub">
+        <strong>Guns N' Roses</strong> · Adaptación visual de apoyo para práctica instrumental<br>
+        Nivel principiante · Rasgueo simple · Aprendizaje paso a paso
+      </div>
+    </div>
+
+    <div class="intro-card">
+      <div class="intro-card-title">🎶 Guía visual de práctica</div>
+      <p>
+        Este material fue organizado como <strong>apoyo pedagógico</strong> para practicar la canción de forma clara, visual y progresiva.
+        Aquí encontrarás los acordes principales, el patrón de rasgueo y una versión sencilla para estudiar con calma.
+      </p>
+    </div>
+
+    <!-- ACORDES -->
+    <div class="sec-label mb1">Acordes de la canción · Toca cada tarjeta para ver detalles</div>
+    <div class="chords-grid" id="chords-grid"></div>
+
+    <!-- PANEL DETALLE -->
+    <div class="detail-panel" id="detail-panel">
+      <div class="detail-inner">
+        <div id="detail-svg"></div>
+        <div class="detail-info">
+          <h3 id="d-name"></h3>
+          <p id="d-desc"></p>
+          <div class="finger-box" id="d-fingers"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RASGUEO -->
+    <div class="sec-label mb1">Patrón de rasgueo</div>
+    <div class="strum-box mb2">
+      <div class="strum-title">Rasgueo sencillo solo hacia abajo</div>
+      <div class="strum-sub">Ideal para empezar sin complicarse la vida más de lo necesario.</div>
+      <div class="strum-pattern" id="strum-pattern"></div>
+      <div class="strum-note">
+        Cada flecha representa un golpe hacia abajo. Mantén un pulso constante y relajado.
+        Puedes aplicar este mismo patrón tanto en el verso como en el coro mientras interiorizas los cambios.
+      </div>
+    </div>
+
+    <!-- LETRA -->
+    <div class="sec-label mb1">Estructura simplificada con acordes</div>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('verse', this)">Verso</button>
+      <button class="tab-btn" onclick="showTab('chorus', this)">Coro</button>
+    </div>
+    <div id="song-content" class="mb2"></div>
+
+    <!-- CONSEJOS -->
+    <div class="sec-label mb1">Consejos para practicar mejor</div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">🎸</div>
+        <div class="tip-title">Cambio Am → Dm</div>
+        <div class="tip-body">
+          Es una de las transiciones más importantes del ejercicio. Practícala despacio hasta que salga natural.
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🤚</div>
+        <div class="tip-title">Mano izquierda relajada</div>
+        <div class="tip-body">
+          Mantén el pulgar detrás del mástil y los dedos curvos para evitar apagar otras cuerdas.
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🎵</div>
+        <div class="tip-title">Tempo sugerido</div>
+        <div class="tip-body">
+          Empieza lento y estable. Cuando los cambios salgan bien, aumenta la velocidad poco a poco.
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🔁</div>
+        <div class="tip-title">Fa con calma</div>
+        <div class="tip-body">
+          La cejilla del Fa puede costar al inicio. Trabájala aparte y luego intégrala a la secuencia.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Material visual de apoyo para práctica musical · <strong>Musicala</strong><br>
+      Diseñado para aprender con claridad, sensibilidad y constancia.
+    </div>
+
+  </div>
+
+  <script>
+    /* =====================================================
+       DATOS DE ACORDES
+       strings[0] = cuerda 6 (Mi grave) ... strings[5] = cuerda 1 (Mi agudo)
+       En el diagrama se dibuja: cuerda 1 a la DERECHA, cuerda 6 a la IZQUIERDA
+    ===================================================== */
+    const CHORDS = [
+      {
+        id: 'am', symbol: 'Am', name: 'La menor',
+        use: 'verse', useLabel: 'Verso', badgeClass: 'badge-verse',
+        strings: ['x','0','2','2','1','0'],
+        barre: null,
+        desc: 'Acorde base del verso. Tiene un color melancólico y muy expresivo, ideal para el carácter de la canción.',
+        fingers: [
+          'Dedo 1 → cuerda 2 (B), traste 1',
+          'Dedo 2 → cuerda 4 (D), traste 2',
+          'Dedo 3 → cuerda 3 (G), traste 2',
+        ]
+      },
+      {
+        id: 'dm', symbol: 'Dm', name: 'Re menor',
+        use: 'verse', useLabel: 'Verso', badgeClass: 'badge-verse',
+        strings: ['x','x','0','2','3','1'],
+        barre: null,
+        desc: 'Acorde con carácter íntimo y nostálgico. Acompaña muy bien la atmósfera del verso.',
+        fingers: [
+          'Dedo 1 → cuerda 1 (e), traste 1',
+          'Dedo 2 → cuerda 3 (G), traste 2',
+          'Dedo 3 → cuerda 2 (B), traste 3',
+        ]
+      },
+      {
+        id: 'g', symbol: 'G', name: 'Sol mayor',
+        use: 'both', useLabel: 'Verso y coro', badgeClass: 'badge-both',
+        strings: ['3','2','0','0','0','3'],
+        barre: null,
+        desc: 'Acorde abierto y brillante. Sirve como apoyo tanto en el verso como en el coro.',
+        fingers: [
+          'Dedo 2 → cuerda 6 (E), traste 3',
+          'Dedo 1 o 2 alternativo → cuerda 5 (A), traste 2',
+          'Dedo 3 o 4 → cuerda 1 (e), traste 3',
+        ]
+      },
+      {
+        id: 'c', symbol: 'C', name: 'Do mayor',
+        use: 'verse', useLabel: 'Verso', badgeClass: 'badge-verse',
+        strings: ['x','3','2','0','1','0'],
+        barre: null,
+        desc: 'Da sensación de reposo y cierre. Muy útil para completar el ciclo armónico del verso.',
+        fingers: [
+          'Dedo 1 → cuerda 2 (B), traste 1',
+          'Dedo 2 → cuerda 4 (D), traste 2',
+          'Dedo 3 → cuerda 5 (A), traste 3',
+        ]
+      },
+      {
+        id: 'f', symbol: 'F', name: 'Fa mayor',
+        use: 'chorus', useLabel: 'Coro', badgeClass: 'badge-chorus',
+        strings: ['1','1','2','3','3','1'],
+        barre: { fret: 1, fromString: 0, toString: 5 },
+        desc: 'Requiere cejilla completa en el primer traste. Es el acorde más retador de esta versión simplificada.',
+        fingers: [
+          'Dedo 1 → cejilla en todas las cuerdas, traste 1',
+          'Dedo 2 → cuerda 3 (G), traste 2',
+          'Dedo 3 → cuerda 5 (A), traste 3',
+          'Dedo 4 → cuerda 4 (D), traste 3',
+        ]
+      },
+    ];
+
+    /* =====================================================
+       DIBUJO DE ACORDE
+       Orientación: cuerda 6 (E grave) a la IZQUIERDA, cuerda 1 (e agudo) a la DERECHA
+       strings[0] = cuerda 6 → columna izquierda (x=0)
+       strings[5] = cuerda 1 → columna derecha  (x=5)
+    ===================================================== */
+    function drawChord(chord, large = false) {
+      const NUM_STRINGS = 6;
+      const NUM_FRETS = 4;
+      const SW = large ? 18 : 12;
+      const FH = large ? 20 : 15;
+      const R = large ? 6 : 4.5;
+      const PX = large ? 18 : 12;
+      const PY = large ? 28 : 20;
+      const W = PX * 2 + SW * (NUM_STRINGS - 1);
+      const H = PY + FH * NUM_FRETS + (large ? 10 : 8);
+
+      let fretLines = '', stringLines = '', markers = '';
+
+      for (let f = 0; f <= NUM_FRETS; f++) {
+        const y = PY + f * FH;
+        const sw = f === 0 ? 2.5 : 0.75;
+        const col = f === 0 ? '#241b35' : '#c9bce9';
+        fretLines += `<line x1="${PX}" y1="${y}" x2="${PX + SW * (NUM_STRINGS - 1)}" y2="${y}" stroke="${col}" stroke-width="${sw}"/>`;
+      }
+
+      for (let s = 0; s < NUM_STRINGS; s++) {
+        const x = PX + s * SW;
+        stringLines += `<line x1="${x}" y1="${PY}" x2="${x}" y2="${PY + FH * NUM_FRETS}" stroke="#c9bce9" stroke-width="0.75"/>`;
+      }
+
+      if (chord.barre) {
+        const { fret, fromString, toString: toStr } = chord.barre;
+        const x1 = PX + fromString * SW;
+        const x2 = PX + toStr * SW;
+        const cy = PY + (fret - 0.5) * FH;
+        const bR = R + 0.5;
+        markers += `<rect x="${x1}" y="${cy - bR}" width="${x2 - x1}" height="${bR * 2}" rx="${bR}" fill="#5b34c4"/>`;
+      }
+
+      for (let s = 0; s < NUM_STRINGS; s++) {
+        const val = chord.strings[s];
+        const cx = PX + s * SW;
+
+        if (val === 'x') {
+          const fs = large ? 11 : 8;
+          markers += `<text x="${cx}" y="${PY - 5}" text-anchor="middle" font-size="${fs}" font-family="DM Sans,sans-serif" fill="#8a80a6">×</text>`;
+        } else if (val === '0') {
+          markers += `<circle cx="${cx}" cy="${PY - 5}" r="${R - 0.5}" fill="none" stroke="#8a80a6" stroke-width="1.2"/>`;
+        } else {
+          const fret = parseInt(val);
+          const cy = PY + (fret - 0.5) * FH;
+          if (chord.barre && chord.barre.fret === fret) continue;
+          markers += `<circle cx="${cx}" cy="${cy}" r="${R}" fill="#5b34c4"/>`;
+        }
+      }
+
+      let labels = '';
+      if (large) {
+        const names = ['E','A','D','G','B','e'];
+        for (let s = 0; s < NUM_STRINGS; s++) {
+          const x = PX + s * SW;
+          const y = PY + FH * NUM_FRETS + 14;
+          labels += `<text x="${x}" y="${y}" text-anchor="middle" font-size="9" font-family="DM Sans,sans-serif" fill="#8a80a6">${names[s]}</text>`;
+        }
+      }
+
+      return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${fretLines}${stringLines}${markers}${labels}</svg>`;
+    }
+
+    /* ===================================================== RENDER CARDS */
+    function buildGrid() {
+      const grid = document.getElementById('chords-grid');
+      grid.innerHTML = CHORDS.map(c => `
+        <div class="chord-card" id="card-${c.id}" onclick="toggleDetail('${c.id}')">
+          <div class="chord-symbol">${c.symbol}</div>
+          <div class="chord-fullname">${c.name}</div>
+          ${drawChord(c, false)}
+          <div><span class="chord-badge ${c.badgeClass}">${c.useLabel}</span></div>
+        </div>
+      `).join('');
+    }
+
+    /* ===================================================== DETAIL PANEL */
+    let activeId = null;
+
+    function toggleDetail(id) {
+      const panel = document.getElementById('detail-panel');
+
+      if (activeId === id) {
+        panel.classList.remove('open');
+        document.getElementById('card-' + id).classList.remove('active');
+        activeId = null;
+        return;
+      }
+
+      if (activeId) {
+        document.getElementById('card-' + activeId).classList.remove('active');
+      }
+
+      activeId = id;
+      const c = CHORDS.find(x => x.id === id);
+
+      document.getElementById('card-' + id).classList.add('active');
+      document.getElementById('detail-svg').innerHTML = drawChord(c, true);
+      document.getElementById('d-name').textContent = `${c.symbol} — ${c.name}`;
+      document.getElementById('d-desc').textContent = c.desc;
+      document.getElementById('d-fingers').innerHTML =
+        '<strong>Digitación:</strong><br>' + c.fingers.join('<br>');
+
+      panel.classList.add('open');
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    /* ===================================================== RASGUEO */
+    function buildStrum() {
+      const container = document.getElementById('strum-pattern');
+      const beats = [1, 2, null, 3, 4];
+
+      container.innerHTML = beats.map(b =>
+        b === null
+          ? `<div class="beat-sep"></div>`
+          : `<div class="beat">
+              <div class="beat-arrow">↓</div>
+              <div class="beat-num">${b}</div>
+            </div>`
+      ).join('');
+    }
+
+    /* ===================================================== SONG CONTENT */
+    const SECTIONS = {
+      verse: [
+        {
+          title: 'Intro / Verso (repetir x2)',
+          rows: [
+            { chords: ['Am'], text: 'La menor — La menor' },
+            { chords: ['Dm'], text: 'Re menor — Re menor' },
+            { chords: ['G'],  text: 'Sol mayor — Sol mayor' },
+            { chords: ['C'],  text: 'Do mayor — Do mayor' },
+          ]
+        }
+      ],
+      chorus: [
+        {
+          title: 'Coro (repetir x2)',
+          rows: [
+            { chords: ['F'],  text: 'Fa mayor — Fa mayor' },
+            { chords: ['G'],  text: 'Sol mayor — Sol mayor' },
+            { chords: ['Am'], text: 'La menor — La menor — La menor — La menor' },
+          ]
+        }
+      ]
+    };
+
+    function renderSong(tab) {
+      const data = SECTIONS[tab];
+      return `<div class="lyrics-block">${
+        data.map(sec => `
+          <div class="lyric-section-title">${sec.title}</div>
+          ${sec.rows.map(row => `
+            <div class="lyric-row">
+              <div class="lyric-chords">
+                ${row.chords.map(ch => `<span class="lyric-chord-tag">${ch}</span>`).join('')}
+              </div>
+              <div class="lyric-text">${row.text}</div>
+            </div>
+          `).join('')}
+        `).join('')
+      }</div>`;
+    }
+
+    function showTab(tab, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('song-content').innerHTML = renderSong(tab);
+    }
+
+    /* ===================================================== PDF / PRINT */
+    function downloadPDF() {
+      const previousTitle = document.title;
+      document.title = 'Musicala - Dont Cry - Guitarra';
+      window.print();
+      setTimeout(() => {
+        document.title = previousTitle;
+      }, 800);
+    }
+
+    /* ===================================================== INIT */
+    buildGrid();
+    buildStrum();
+      document.getElementById('song-content').innerHTML = renderSong('verse');
+  </script>
+</body>
+</html>
